@@ -1,0 +1,75 @@
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+    <?= Html::linkAction("../artista/", 'Inicio') ?>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../artista/edit/1", 'Editar Perfil') ?>
+            <?= Html::linkAction("../artista/update_photo/1", 'Actualizar Foto') ?>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Eventos 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../create/", 'Crear Nuevo') ?>
+            <?= Html::linkAction("../listar/", 'Listar Todos') ?>
+        </div>
+    </div> 
+    <div class="dropdown">
+        <button class="dropbtn">Publicación 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../publicacion/create/1", 'Crear Publicación') ?>
+        </div>
+    </div> 
+    <div class="dropdown">
+        <button class="dropbtn">Críticas de Contenido 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../critica/index/", 'Ver todas') ?>
+        </div>
+    </div> 
+</div>
+
+<div class="row">   
+    <h1>Editar Evento</h1>
+    <?= Form::openMultipart() ?>
+    <?php View::content() ?>
+    <div class="col-lg-6">
+        <?php echo Form::open() ?>
+            <?= Form::hidden('evento.id') ?>
+            <div class="form-group">
+                <?php echo Form::hidden("evento.artista_id","class='form-control'") ?>  
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <?php echo Form::text("evento.nombre","class='form-control'") ?>
+            </div>
+            <div class="form-group">
+                <label>Lugar</label>
+                <select name="evento[lugar]">
+                  <option value="Quito">Quito</option>
+                  <option value="Guayaquil">Guayaquil</option>
+                  <option value="Guayaquil">Cuenca</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha</label>
+                <?php echo Form::date("evento.fecha","class='form-control'") ?>
+            </div>
+            <div class="form-group">
+                <label>Hora</label>
+                <?php echo Form::time("evento.hora","class='form-control'") ?>
+            </div>
+            
+        <?php echo Form::submit("Actualizar Evento","class='btn btn-default'") ?>
+        <?php echo Form::close() ?>
+    </div>
+</div>
+</div>

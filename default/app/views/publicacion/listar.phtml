@@ -1,0 +1,55 @@
+<!-- <h1>Lista de publicaciones de artistas</h1> -->
+<?php View::content() ?>
+<?= Form::open() ?>
+<?= Form::openMultipart() ?>
+
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+    <a class="active" href="../seguidor/index">Inicio</a>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../seguidor/edit/1", 'Editar Datos') ?>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Publicaciones Artísticas
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../publicacion/listar", 'Ver Nuevas') ?>
+        </div>
+    </div> 
+</div>
+
+<?php if (count($data) > 0) { ?>
+    <table style="width:100%">
+        <thead>
+            <tr>            
+                <th>Artista</th>
+                <th>Titulo</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Contenido</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <?php foreach ($data as $item) { ?> 
+                <tr>
+                    <td><?= $item->artista_id ?></td>
+                    <td><?= $item->titulo ?></td>
+                    <td><?= $item->fecha ?></td>
+                    <td><?= $item->descripcion ?></td>
+                    <td><?= $item->contenido ?> </td>
+                    <td><?= Html::linkAction("../critica/create/", 'Criticar Publicación') ?> | <?= Html::linkAction("../critica/create/$item->id", 'Criticar') ?> </td>
+                </tr> 
+            <?php } ?>        
+        </tbody>
+    </table>
+
+<?php } else { ?>
+    <h2>No hay ningún registro</h2>
+<?php } ?>

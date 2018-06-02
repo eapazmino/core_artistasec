@@ -1,0 +1,45 @@
+<h1>Crear artista</h1>
+<?php View::content() ?>
+<?= Form::openMultipart() ?>
+
+<div class="col-lg-6">
+
+    <div class="form-group">
+        <label for="artista_name">Nombre</label>
+        <?= Form::text('artista.nombre', 'class="u-full-width" required') ?>        
+    </div>   
+
+    <div class="form-group">
+        <label for="artista_name_art">Nombre Artístico</label>
+        <?= Form::text('artista.nombre_art', 'class="u-full-width" required') ?>        
+    </div>   
+
+    <div class="form-group">
+        <label for="artista_bio">Biografía</label>
+        <?= Form::textarea('artista.bio', 'class="u-full-width" required') ?>        
+    </div>   
+
+    <div class="form-group">
+        <label for="artista_inf">Influencias</label>
+        <?= Form::text('artista.inf', 'class="u-full-width" required') ?>        
+    </div>   
+    
+    <div class="form-group">
+        <label for="artista_email">Correo Electrónico</label>
+        <?= Form::email('artista.email','class="u-full-width" placeholder="artista@gmail.com"  required') ?>
+    </div>
+
+    <div class="form-group">
+        <label for="artista_age">Edad</label>
+        <?= Form::number('artista.edad', 'class="u-full-width" required') ?>        
+    </div>   
+
+    <div class="form-group">
+        <label for="foto">Foto de perfil</label>
+        <?= Form::file('foto', 'class="form-control"') ?>        
+    </div> 
+
+</div>
+
+<input class="btn btn-default" value="Enviar" type="submit">
+<?= Form::close() ?>

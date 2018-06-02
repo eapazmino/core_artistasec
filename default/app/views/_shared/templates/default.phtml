@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset=<?= APP_CHARSET ?> >
+  <title>Proyecto Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php Tag::css('kumbia') ?>
+  <?= Html::includeCss() ?>
+  <?= Tag::js('jquery/jquery.min'); ?>
+  
+  <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    /* Estilo Menu */
+    * {box-sizing: border-box;}
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Navbar container */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      font-family: Arial;
+    }
+
+    /* Links inside the navbar */
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    /* The dropdown container */
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    /* Dropdown button */
+    .dropdown .dropbtn {
+      font-size: 16px; 
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit; /* Important for vertical align on mobile phones */
+      margin: 0; /* Important for vertical align on mobile phones */
+    }
+
+    /* Add a red background color to navbar links on hover */
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: red;
+    }
+
+    .navbar a.active {
+      background-color: #2196F3;
+      color: white;
+    }
+
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    /* Add a grey background color to dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .rating{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,-50%) rotateY(180deg);
+      display: flex;
+      }
+
+      .rating input{
+        display: none;
+      }
+
+      .rating label{
+        display: block;
+        cursor: pointer;
+        width: 50px;
+        background: white;
+      }
+
+      .rating label:before{
+        content: '\f005';
+        font-family: fontAwesome;
+        position: relative;
+        display: block;
+        font-size: 25px;
+        color: #101010;
+      }
+
+      .rating label:after{
+        content: '\f005';
+        font-family: fontAwesome;
+        position: absolute;
+        display: block;
+        font-size: 25px;
+        color: #1f9cff;
+        top:0;
+        opacity: 0;
+        transition: : .5s;
+        text-shadow: 0 2px rgba(0,0,0,.5);
+      }
+
+      .rating label:hover:after,
+      .rating label:hover ~ label:after,
+      .rating input:checked ~ label:after
+      {
+        opacity: 1;
+      } 
+      
+  </style>
+
+</head>
+<body>
+<div class="container">
+  <header class="row">
+      <div class="col-8">
+        <?= Html::img('kumbiaphp.svg', 'KumbiaPHP logo') ?>
+      </div>
+      <div class="col-4 text-right">
+          App: <strong><?= basename(dirname(APP_PATH)) ?></strong> (<?= PRODUCTION ? 'Production' : 'Development' ?>)
+      </div>
+  </header>
+  <?php View::content() ?>
+  <?php View::partial('kumbia/footer') ?>
+</div>
+</body>
+</html>

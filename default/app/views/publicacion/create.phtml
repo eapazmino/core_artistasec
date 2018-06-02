@@ -1,0 +1,71 @@
+<!-- <h1>Crear Publicación</h1> -->
+<?php View::content() ?>
+
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+  	<?= Html::linkAction("../artista/", 'Inicio') ?>
+  	<div class="dropdown">
+	    <button class="dropbtn">Perfil 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("edit/1", 'Editar Perfil') ?>
+	    	<?= Html::linkAction("update_photo/1", 'Actualizar Foto') ?>
+	    </div>
+	</div>
+	<div class="dropdown">
+	    <button class="dropbtn">Eventos 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("../evento/create/", 'Crear Nuevo') ?>
+	    	<?= Html::linkAction("../evento/edit/1", 'Editar Existente') ?>
+	    </div>
+	</div> 
+	<div class="dropdown">
+	    <button class="dropbtn">Publicación 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("../publicacion/create/1", 'Crear Publicación') ?>
+	    </div>
+	</div> 
+	<div class="dropdown">
+	    <button class="dropbtn">Críticas de Contenido 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("../critica/index/", 'Ver todas') ?>
+	    </div>
+	</div> 
+</div>
+
+<div class="row">	
+	<div class="col-lg-6">
+		<?php echo Form::open() ?>
+			<?= Form::hidden('publicacion.id') ?>
+			<div class="form-group">
+				<label>Artista</label>
+					<?= Form::dbSelect('publicacion.artista_id', 'nombre', array('artista', 'all'), '- Seleccione -'); ?>    
+			</div>
+			<div class="form-group">
+				<label>Titulo</label>
+					<?php echo Form::text("publicacion.titulo","class='form-control'") ?>
+			</div>
+			<div class="form-group">
+					<label>Fecha Lanzamiento</label>
+					<?php echo Form::date("publicacion.fecha","class='form-control'") ?>
+			</div>
+			<div class="form-group">
+				<label>Descripcion</label>
+				<?php echo Form::textarea("publicacion.descripcion","class='form-control'") ?>
+			</div>
+			<div class="form-group">
+				<?= Form::openMultipart() ?>
+				<label for="contenido">Contenido</label>
+				<?php echo Form::file("contenido") ?>
+			</div>
+		<?php echo Form::submit("Crear","class='btn btn-default'") ?>
+		<?php echo Form::close() ?>
+	</div>
+</div>

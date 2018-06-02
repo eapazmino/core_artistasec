@@ -1,0 +1,65 @@
+<!-- <h1>Crítica de Contenido por el Seguidor</h1> -->
+<?php View::content() ?>
+<?= Form::open() ?>
+<?= Form::openMultipart() ?>
+
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+    <a class="active" href="../seguidor/index">Inicio</a>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../seguidor/edit/1", 'Editar Datos') ?>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Publicaciones Artísticas
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../publicacion/listar", 'Ver Nuevas') ?>
+        </div>
+    </div> 
+</div>
+
+<h2>Crítica de Contenido</h2>
+<div class="row">   
+    <div class="col-lg-6">
+        <?php echo Form::open() ?>
+            <?= Form::hidden('critica.id') ?>
+            <div class="form-group">
+                <?php echo Form::hidden("critica.publicacion_id","class='form-control'") ?>  
+            </div>
+            <div class="form-group">
+                <label>Pubicación</label>
+                    <?= Form::dbSelect('critica.publicacion_id', 'titulo', array('publicacion', 'all'), '- Seleccione -'); ?>
+            </div>
+            <div class="form-group">
+                <label>Seguidor</label>
+                    <?= Form::dbSelect('critica.seguidor_id', 'nombre', array('seguidor', 'all'), '- Seleccione -'); ?>
+            </div>
+            <div class="form-group">
+                <label>Comentario</label>
+                    <?= Form::textarea('critica.comentario', 'class="u-full-width" required') ?> 
+            </div>
+        
+    </div>
+    <div class="form-group" align="center">
+        <label>Calificación</label>
+    </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="rating">
+        	<input type="radio" name="critica[calificacion]" id="star5" value="5"><label for="star5"></label>
+        	<input type="radio" name="critica[calificacion]" id="star4" value="4"><label for="star4"></label>
+        	<input type="radio" name="critica[calificacion]" id="star3" value="3"><label for="star3"></label>
+        	<input type="radio" name="critica[calificacion]" id="star2" value="2"><label for="star2"></label>
+        	<input type="radio" name="critica[calificacion]" id="star1" value="1"><label for="star1"></label>
+        </div>
+    <?php echo Form::submit("Enviar","class='btn btn-default'") ?>
+    <?php echo Form::close() ?>
+</div>
+
+
+

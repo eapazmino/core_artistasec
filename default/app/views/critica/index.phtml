@@ -1,0 +1,68 @@
+<!-- <h1>Lista de críticas</h1> -->
+<?php View::content() ?>
+
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+    <?= Html::linkAction("../artista/", 'Inicio') ?>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("edit/1", 'Editar Perfil') ?>
+            <?= Html::linkAction("update_photo/1", 'Actualizar Foto') ?>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Eventos 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../evento/create/", 'Crear Nuevo') ?>
+            <?= Html::linkAction("../evento/edit/1", 'Editar Existente') ?>
+        </div>
+    </div> 
+    <div class="dropdown">
+        <button class="dropbtn">Publicación 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../publicacion/create/1", 'Crear Publicación') ?>
+        </div>
+    </div> 
+    <div class="dropdown">
+        <button class="dropbtn">Críticas de Contenido 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../critica/index/", 'Ver Todas') ?>
+            <?= Html::linkAction("../../../../../../reportes/index.php", 'Ver Reporte') ?>
+        </div>
+    </div> 
+</div>
+
+<?php if (count($data) > 0) { ?>
+    <table style="width:80%">
+        <thead>
+            <tr>            
+                <th>Publicación</th>
+                <th>Seguidor</th>
+                <th>Comentario</th>
+                <th>Calificación</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <?php foreach ($data as $item) { ?> 
+                <tr>
+                    <td><?= $item->publicacion_id ?></td>
+                    <td><?= $item->seguidor_id ?></td>
+                    <td><?= $item->comentario ?></td>
+                    <td><?= $item->calificacion ?></td>
+                </tr> 
+            <?php } ?>        
+        </tbody>
+    </table>
+
+<?php } else { ?>
+    <h2>No hay ningún registro</h2>
+<?php } ?>

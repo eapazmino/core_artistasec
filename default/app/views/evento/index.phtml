@@ -1,0 +1,44 @@
+<?= Form::openMultipart() ?>
+
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+  	<a class="active" href="../artista/index">Inicio</a>
+  	<div class="dropdown">
+	    <button class="dropbtn">Perfil 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("edit/1", 'Editar Perfil') ?>
+	    	<?= Html::linkAction("update_photo/1", 'Actualizar Foto') ?>
+	    </div>
+	</div>
+	<div class="dropdown">
+	    <button class="dropbtn">Eventos 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("../evento/create/", 'Crear Nuevo') ?>
+	    	<?= Html::linkAction("../evento/edit/1", 'Editar Existente') ?>
+	    </div>
+	</div> 
+	<div class="dropdown">
+	    <button class="dropbtn">Publicación 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("../publicacion/create/1", 'Crear Publicación') ?>
+	    </div>
+	</div> 
+	<div class="dropdown">
+	    <button class="dropbtn">Críticas de Contenido 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("../critica/index/", 'Ver todas') ?>
+	    </div>
+	</div> 
+</div>
+
+<div style="padding-left:16px">
+  <h2>Bienvenido Artista</h2>
+</div>

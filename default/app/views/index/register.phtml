@@ -1,0 +1,48 @@
+<div class="row text-center  ">
+            <div class="col-md-12">
+                <br /><br />
+                <h2>Registro</h2>
+               
+                <h5>Darse de alta para conseguir el acceso</h5>
+                 <br />
+            </div>
+        </div>
+         <div class="row">
+               
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                <?php View::content() ?>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                        <strong>  Nuevo usuario ? darse de alta</strong>  
+                            </div>
+                            <div class="panel-body">
+                                <?php echo Form::open("","post",'role="form"') ?>
+<br/>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                                            <input type="text" name="usuarios[nombre]" class="form-control" placeholder="Tu nombre" />
+                                        </div>
+                                         <div class="form-group input-group">
+                                            <span class="input-group-addon">@</span>
+                                            <input type="text" name="usuarios[email]" class="form-control" placeholder="Tu Email" />
+                                        </div>
+                                      <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" name="usuarios[clave]" class="form-control" placeholder="Tu Contraseña" />
+                                        </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" name="usuarios[clave2]" class="form-control" placeholder="Repetir Contraseña" />
+                                        </div>
+                                     
+                                     <input type="submit" class="btn btn-success " value="Registrar">
+                                    <hr />                                   
+                                        Ya registrado ? <a href="<?php print PUBLIC_PATH ?>" >Entre aquí</a>
+                                    </form>
+                            </div>
+                           
+                        </div>
+                    </div>
+                
+                
+        </div>

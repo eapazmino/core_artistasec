@@ -1,0 +1,76 @@
+<!-- <h1>Editar Perfil</h1> -->
+<?php View::content() ?>
+<?= Form::open() ?>
+
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+    <?= Html::linkAction("../artista/", 'Inicio') ?>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("edit/1", 'Editar Perfil') ?>
+            <?= Html::linkAction("update_photo/1", 'Actualizar Foto') ?>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Eventos 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../evento/create/", 'Crear Nuevo') ?>
+            <?= Html::linkAction("../evento/listar", 'Listar Todos') ?>
+        </div>
+    </div> 
+    <div class="dropdown">
+        <button class="dropbtn">Publicación 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../publicacion/create/1", 'Crear Publicación') ?>
+        </div>
+    </div> 
+    <div class="dropdown">
+        <button class="dropbtn">Críticas de Contenido 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../critica/index/", 'Ver todas') ?>
+        </div>
+    </div> 
+</div>
+
+<div class="row">   
+    <div class="col-lg-6">
+        <?php echo Form::open() ?>
+            <?= Form::hidden('artista.id') ?>
+            <div class="form-group">
+                <label>Nombre</label>
+                    <?= Form::text('artista.nombre', 'class="u-full-width" required'); ?>   
+            </div>
+            <div class="form-group">
+                <label>Nombre Artístico</label>
+                    <?= Form::text('artista.nombre_art', 'class="u-full-width" required') ?>
+            </div>
+            <div class="form-group">
+                <label>Biografía</label>
+                    <?= Form::textarea('artista.bio', 'class="u-full-width" required') ?>    
+            </div>
+            <div class="form-group">
+                <label>Influencias</label>
+                    <?= Form::text('artista.inf', 'class="u-full-width" required') ?>
+            </div>
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                    <?= Form::email('artista.email','class="u-full-width" placeholder="user@mailbox.com"  required') ?>
+            </div>
+            <div class="form-group">
+                <label>Edad</label>
+                     <?= Form::number('artista.edad', 'required') ?> 
+            </div>
+
+        <?php echo Form::submit("Actualizar","class='btn btn-default'") ?>
+        <?php echo Form::close() ?>
+    </div>
+</div>

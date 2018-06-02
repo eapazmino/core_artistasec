@@ -1,0 +1,27 @@
+<?= Form::openMultipart() ?>
+<div class="topnav">
+
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+  	<a class="active" href="../seguidor/index">Inicio</a>
+  	<div class="dropdown">
+	    <button class="dropbtn">Perfil 
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("edit/1", 'Editar Datos') ?>
+	    </div>
+	</div>
+	<div class="dropdown">
+	    <button class="dropbtn">Publicaciones Artísticas
+	      <i class="fa fa-caret-down"></i>
+   		</button>
+	    <div class="dropdown-content">
+	    	<?= Html::linkAction("../publicacion/listar", 'Ver Nuevas') ?>
+	    </div>
+	</div> 
+</div>
+
+<div style="padding-left:16px">
+  <h2>Bienvenido Seguidor</h2>
+</div>

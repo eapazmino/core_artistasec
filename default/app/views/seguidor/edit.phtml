@@ -1,0 +1,42 @@
+<!-- <h1>Editar Información</h1> -->
+<?php View::content() ?>
+<?= Form::open() ?>
+<?= Form::openMultipart() ?>
+
+<!-- <h1>MENU</h1> -->
+<div class="navbar">
+    <a class="active" href="../index">Inicio</a>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("edit/1", 'Editar Datos') ?>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Publicaciones Artísticas
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <?= Html::linkAction("../publicacion/listar", 'Ver Nuevas') ?>
+        </div>
+    </div> 
+</div>
+
+<div class="row">   
+    <div class="col-lg-6">
+        <?php echo Form::open() ?>
+            <?= Form::hidden('seguidor.id') ?>
+            <div class="form-group">
+                <label>Nombre</label>
+                    <?php echo Form::text("seguidor.nombre","class='form-control'") ?>
+            </div>
+            <div class="form-group">
+                <label>Nickname</label>
+                    <?php echo Form::text("seguidor.nombre_usr","class='form-control'") ?>
+            </div>
+        <?php echo Form::submit("Actualizar","class='btn btn-default'") ?>
+        <?php echo Form::close() ?>
+    </div>
+</div>
